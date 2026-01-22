@@ -1,0 +1,219 @@
+<Window x:Class="ScreenKeyboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Screen Keyboard with Touchpad" 
+        Height="500" 
+        Width="900"
+        Background="#1e1e1e"
+        ResizeMode="CanResize"
+        WindowStyle="SingleBorderWindow">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Title Bar -->
+        <Border Grid.Row="0" Background="#2d2d30" CornerRadius="4" Padding="10" Margin="0,0,0,10">
+            <TextBlock Text="スクリーンキーボード &amp; タッチパッド" 
+                       FontSize="16" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"/>
+        </Border>
+        
+        <!-- Main Content Area -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Keyboard Section -->
+            <Border Grid.Column="0" Background="#252526" CornerRadius="4" Padding="10">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock Text="キーボード" FontSize="14" FontWeight="SemiBold" Foreground="White" Margin="0,0,0,10"/>
+                        
+                        <!-- Number Row -->
+                        <UniformGrid Rows="1" Columns="10" Margin="0,0,0,5">
+                            <Button Style="{StaticResource KeyButton}" Content="1" Click="KeyButton_Click" Tag="1"/>
+                            <Button Style="{StaticResource KeyButton}" Content="2" Click="KeyButton_Click" Tag="2"/>
+                            <Button Style="{StaticResource KeyButton}" Content="3" Click="KeyButton_Click" Tag="3"/>
+                            <Button Style="{StaticResource KeyButton}" Content="4" Click="KeyButton_Click" Tag="4"/>
+                            <Button Style="{StaticResource KeyButton}" Content="5" Click="KeyButton_Click" Tag="5"/>
+                            <Button Style="{StaticResource KeyButton}" Content="6" Click="KeyButton_Click" Tag="6"/>
+                            <Button Style="{StaticResource KeyButton}" Content="7" Click="KeyButton_Click" Tag="7"/>
+                            <Button Style="{StaticResource KeyButton}" Content="8" Click="KeyButton_Click" Tag="8"/>
+                            <Button Style="{StaticResource KeyButton}" Content="9" Click="KeyButton_Click" Tag="9"/>
+                            <Button Style="{StaticResource KeyButton}" Content="0" Click="KeyButton_Click" Tag="0"/>
+                        </UniformGrid>
+                        
+                        <!-- First Row -->
+                        <UniformGrid Rows="1" Columns="10" Margin="0,0,0,5">
+                            <Button Style="{StaticResource KeyButton}" Content="Q" Click="KeyButton_Click" Tag="Q"/>
+                            <Button Style="{StaticResource KeyButton}" Content="W" Click="KeyButton_Click" Tag="W"/>
+                            <Button Style="{StaticResource KeyButton}" Content="E" Click="KeyButton_Click" Tag="E"/>
+                            <Button Style="{StaticResource KeyButton}" Content="R" Click="KeyButton_Click" Tag="R"/>
+                            <Button Style="{StaticResource KeyButton}" Content="T" Click="KeyButton_Click" Tag="T"/>
+                            <Button Style="{StaticResource KeyButton}" Content="Y" Click="KeyButton_Click" Tag="Y"/>
+                            <Button Style="{StaticResource KeyButton}" Content="U" Click="KeyButton_Click" Tag="U"/>
+                            <Button Style="{StaticResource KeyButton}" Content="I" Click="KeyButton_Click" Tag="I"/>
+                            <Button Style="{StaticResource KeyButton}" Content="O" Click="KeyButton_Click" Tag="O"/>
+                            <Button Style="{StaticResource KeyButton}" Content="P" Click="KeyButton_Click" Tag="P"/>
+                        </UniformGrid>
+                        
+                        <!-- Second Row -->
+                        <UniformGrid Rows="1" Columns="9" Margin="0,0,0,5">
+                            <Button Style="{StaticResource KeyButton}" Content="A" Click="KeyButton_Click" Tag="A"/>
+                            <Button Style="{StaticResource KeyButton}" Content="S" Click="KeyButton_Click" Tag="S"/>
+                            <Button Style="{StaticResource KeyButton}" Content="D" Click="KeyButton_Click" Tag="D"/>
+                            <Button Style="{StaticResource KeyButton}" Content="F" Click="KeyButton_Click" Tag="F"/>
+                            <Button Style="{StaticResource KeyButton}" Content="G" Click="KeyButton_Click" Tag="G"/>
+                            <Button Style="{StaticResource KeyButton}" Content="H" Click="KeyButton_Click" Tag="H"/>
+                            <Button Style="{StaticResource KeyButton}" Content="J" Click="KeyButton_Click" Tag="J"/>
+                            <Button Style="{StaticResource KeyButton}" Content="K" Click="KeyButton_Click" Tag="K"/>
+                            <Button Style="{StaticResource KeyButton}" Content="L" Click="KeyButton_Click" Tag="L"/>
+                        </UniformGrid>
+                        
+                        <!-- Third Row -->
+                        <UniformGrid Rows="1" Columns="7" Margin="0,0,0,5">
+                            <Button Style="{StaticResource KeyButton}" Content="Z" Click="KeyButton_Click" Tag="Z"/>
+                            <Button Style="{StaticResource KeyButton}" Content="X" Click="KeyButton_Click" Tag="X"/>
+                            <Button Style="{StaticResource KeyButton}" Content="C" Click="KeyButton_Click" Tag="C"/>
+                            <Button Style="{StaticResource KeyButton}" Content="V" Click="KeyButton_Click" Tag="V"/>
+                            <Button Style="{StaticResource KeyButton}" Content="B" Click="KeyButton_Click" Tag="B"/>
+                            <Button Style="{StaticResource KeyButton}" Content="N" Click="KeyButton_Click" Tag="N"/>
+                            <Button Style="{StaticResource KeyButton}" Content="M" Click="KeyButton_Click" Tag="M"/>
+                        </UniformGrid>
+                        
+                        <!-- Special Keys Row -->
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Style="{StaticResource KeyButton}" Content="Shift" Click="SpecialKeyButton_Click" Tag="SHIFT"/>
+                            <Button Grid.Column="1" Style="{StaticResource KeyButton}" Content="Space" Click="SpecialKeyButton_Click" Tag="SPACE"/>
+                            <Button Grid.Column="2" Style="{StaticResource KeyButton}" Content="Enter" Click="SpecialKeyButton_Click" Tag="RETURN"/>
+                            <Button Grid.Column="3" Style="{StaticResource KeyButton}" Content="⌫" Click="SpecialKeyButton_Click" Tag="BACK"/>
+                        </Grid>
+                        
+                        <!-- Additional Special Keys -->
+                        <UniformGrid Rows="1" Columns="5" Margin="0,0,0,5">
+                            <Button Style="{StaticResource KeyButton}" Content="Tab" Click="SpecialKeyButton_Click" Tag="TAB"/>
+                            <Button Style="{StaticResource KeyButton}" Content="Esc" Click="SpecialKeyButton_Click" Tag="ESCAPE"/>
+                            <Button Style="{StaticResource KeyButton}" Content="Ctrl" Click="SpecialKeyButton_Click" Tag="LCONTROL"/>
+                            <Button Style="{StaticResource KeyButton}" Content="Alt" Click="SpecialKeyButton_Click" Tag="LMENU"/>
+                            <Button Style="{StaticResource KeyButton}" Content="Win" Click="SpecialKeyButton_Click" Tag="LWIN"/>
+                        </UniformGrid>
+                        
+                        <!-- Symbols -->
+                        <UniformGrid Rows="1" Columns="8" Margin="0,0,0,5">
+                            <Button Style="{StaticResource KeyButton}" Content="!" Click="KeyButton_Click" Tag="!"/>
+                            <Button Style="{StaticResource KeyButton}" Content="@" Click="KeyButton_Click" Tag="@"/>
+                            <Button Style="{StaticResource KeyButton}" Content="#" Click="KeyButton_Click" Tag="#"/>
+                            <Button Style="{StaticResource KeyButton}" Content="$" Click="KeyButton_Click" Tag="$"/>
+                            <Button Style="{StaticResource KeyButton}" Content="%" Click="KeyButton_Click" Tag="%"/>
+                            <Button Style="{StaticResource KeyButton}" Content="&amp;" Click="KeyButton_Click" Tag="&amp;"/>
+                            <Button Style="{StaticResource KeyButton}" Content="*" Click="KeyButton_Click" Tag="*"/>
+                            <Button Style="{StaticResource KeyButton}" Content="(" Click="KeyButton_Click" Tag="("/>
+                        </UniformGrid>
+                        
+                        <UniformGrid Rows="1" Columns="8" Margin="0,0,0,5">
+                            <Button Style="{StaticResource KeyButton}" Content=")" Click="KeyButton_Click" Tag=")"/>
+                            <Button Style="{StaticResource KeyButton}" Content="-" Click="KeyButton_Click" Tag="-"/>
+                            <Button Style="{StaticResource KeyButton}" Content="+" Click="KeyButton_Click" Tag="+"/>
+                            <Button Style="{StaticResource KeyButton}" Content="=" Click="KeyButton_Click" Tag="="/>
+                            <Button Style="{StaticResource KeyButton}" Content="[" Click="KeyButton_Click" Tag="["/>
+                            <Button Style="{StaticResource KeyButton}" Content="]" Click="KeyButton_Click" Tag="]"/>
+                            <Button Style="{StaticResource KeyButton}" Content=";" Click="KeyButton_Click" Tag=";"/>
+                            <Button Style="{StaticResource KeyButton}" Content="'" Click="KeyButton_Click" Tag="'"/>
+                        </UniformGrid>
+                        
+                        <UniformGrid Rows="1" Columns="8" Margin="0,0,0,5">
+                            <Button Style="{StaticResource KeyButton}" Content="," Click="KeyButton_Click" Tag=","/>
+                            <Button Style="{StaticResource KeyButton}" Content="." Click="KeyButton_Click" Tag="."/>
+                            <Button Style="{StaticResource KeyButton}" Content="/" Click="KeyButton_Click" Tag="/"/>
+                            <Button Style="{StaticResource KeyButton}" Content="\" Click="KeyButton_Click" Tag="\"/>
+                            <Button Style="{StaticResource KeyButton}" Content="`" Click="KeyButton_Click" Tag="`"/>
+                            <Button Style="{StaticResource KeyButton}" Content="~" Click="KeyButton_Click" Tag="~"/>
+                            <Button Style="{StaticResource KeyButton}" Content="&lt;" Click="KeyButton_Click" Tag="&lt;"/>
+                            <Button Style="{StaticResource KeyButton}" Content="&gt;" Click="KeyButton_Click" Tag="&gt;"/>
+                        </UniformGrid>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+            
+            <!-- Touchpad Section -->
+            <Border Grid.Column="2" Background="#252526" CornerRadius="4" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="タッチパッド" FontSize="14" FontWeight="SemiBold" Foreground="White" Margin="0,0,0,10"/>
+                    
+                    <!-- Touchpad Area -->
+                    <Border Name="TouchpadBorder" 
+                            Background="#3e3e42" 
+                            CornerRadius="4" 
+                            Height="300" 
+                            BorderBrush="#007acc" 
+                            BorderThickness="2"
+                            MouseMove="Touchpad_MouseMove"
+                            MouseLeftButtonDown="Touchpad_LeftButtonDown"
+                            MouseLeftButtonUp="Touchpad_LeftButtonUp"
+                            MouseRightButtonDown="Touchpad_RightButtonDown">
+                        <Grid>
+                            <TextBlock Text="ここをドラッグしてカーソルを移動" 
+                                       FontSize="12" 
+                                       Foreground="#888888" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"
+                                       Margin="10"/>
+                        </Grid>
+                    </Border>
+                    
+                    <!-- Touchpad Buttons -->
+                    <Grid Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Button Grid.Column="0" 
+                                Style="{StaticResource KeyButton}" 
+                                Content="左クリック" 
+                                Click="LeftClick_Button"
+                                Height="40"/>
+                        <Button Grid.Column="2" 
+                                Style="{StaticResource KeyButton}" 
+                                Content="右クリック" 
+                                Click="RightClick_Button"
+                                Height="40"/>
+                    </Grid>
+                    
+                    <!-- Sensitivity Control -->
+                    <StackPanel Margin="0,15,0,0">
+                        <TextBlock Text="感度" FontSize="12" Foreground="White" Margin="0,0,0,5"/>
+                        <Slider Name="SensitivitySlider" 
+                                Minimum="1" 
+                                Maximum="20" 
+                                Value="5" 
+                                TickFrequency="1" 
+                                IsSnapToTickEnabled="True"
+                                Foreground="#007acc"/>
+                        <TextBlock Name="SensitivityLabel" 
+                                   Text="5x" 
+                                   FontSize="10" 
+                                   Foreground="#888888" 
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
