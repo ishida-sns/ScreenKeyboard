@@ -74,7 +74,7 @@ namespace ScreenKeyboard
                     isShiftPressed = !isShiftPressed;
                     button.Background = isShiftPressed ? 
                         System.Windows.Media.Brushes.DarkOrange : 
-                        (System.Windows.Media.Brush)FindResource(System.Windows.SystemColors.ControlBrushKey);
+                        new System.Windows.Media.SolidColorBrush(System.Windows.Media.Color.FromRgb(0x2d, 0x2d, 0x30));
                     return;
                 }
 
